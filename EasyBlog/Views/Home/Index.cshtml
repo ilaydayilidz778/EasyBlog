@@ -5,7 +5,7 @@
 
 @if (ViewBag.CategoryName != null)
 {
-    <h2 class="text-secondary border-bottom fw-light mb-3">Posts in the @ViewBag.CategoryName</h2>
+    <h2 class="border-bottom pb-3 mb-4">Posts in the &ldquo;@ViewBag.CategoryName&rdquo; Category</h2>
 }
 
 
@@ -17,7 +17,7 @@
             @* <div class="small text-muted">January 1, 2023</div> *@
             <h2 class="card-title h4">@post.Title</h2>
             <p class="card-text">@post.Description</p>
-            <a class="btn btn-primary" asp-controller="Home" asp-action="ShowPost" asp-route-id="@post.Id" >Read more →</a>
+            <a class="btn btn-primary"  asp-action="ShowPost" asp-route-id="@post.Id" >Read more →</a>
         </div>
     </div>
 }

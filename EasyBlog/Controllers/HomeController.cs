@@ -21,13 +21,14 @@ namespace EasyBlog.Controllers
         public IActionResult Index(int? cid)
         {
             IQueryable<Post> posts = _db.Posts;
+
             if (cid != null)
             {
                 posts = posts.Where(p => p.CategoryId == cid);
                 ViewBag.CategoryName = _db.Categories.Find(cid)?.Name;
-             
             }
-            return View(_db.Posts.OrderByDescending(p => p.Id).ToList());
+
+            return View(posts.OrderByDescending(x => x.Id).ToList());
         }
 
         [Route("Post/{id:int}")]
